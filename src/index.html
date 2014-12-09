@@ -1,0 +1,55 @@
+<html>
+	<head>
+		<meta charset='utf-8'>
+		<title>Cesta po Slovensku &bull; Geografia Projekt</title>
+		<link rel='stylesheet' href='s/general.css'>
+		<script type="text/javascript" src='s/map.js'></script>
+	</head>
+	<body>
+		<div id="introduction">
+			<h1>Vitajte na prechádzke Slovenskom!</h1>
+			<h2>→ prevedie vás po Slovensku <strong>Jakub Kubíček</strong></h2>
+			<button id="start-survey">Začať prechádzku &gt;</button>
+		</div>
+	<div id="survey-labels">
+		<dl>
+			<dt class='trenciansky-hrad' data-poradie=1>Trenčiansky hrad</dt>
+			<dd class='trenciansky-hrad'>
+				<ul>
+					<li>rozsiahly zrenovovaný hrad na strmom vápencovom brale nad Trenčínom</li>
+					<li>história siaha do obdobia rimanov</li>
+					<li>nápis na hradnej skale hlásajúci víťazstvo II. rímskej légie nad Germánmi</li>
+					<li>dnešný hrad vznikol na mieste hradiska</li>
+					<li>na nádvorí sa zachovala povestná studňa lásky</li>
+				</ul>
+			</dd>
+			<dt class="cicmany" data-poradie=2>Čičmany</dt>
+			<dd class='cicmany'>
+				<ul>
+					<li>obec v okrese Žilina</li>
+					<li>najvyššie položená obec v tomto okrese</li>
+					<li>prvé zmienky z roku 1272</li>
+					<li>z blízkeho vrchu Javorinka je možný paragliding</li>
+					<li>architektúra pripomína "perníkové" domčeky</li>
+				</ul>
+			</dd>
+		</dl>
+	</div>
+	<div id="map" class='hidden'>
+		<div id="place-view">
+			
+		</div>
+	</div>
+	</body>
+	<script type='text/javascript'>
+		// load the presentation
+		window.onload = function() {
+			document.getElementById('start-survey').onclick = function() {
+				var survey = new window._Survey();
+				survey.start([
+					[318,259]
+				]);
+			}
+		}
+	</script>
+</html>
