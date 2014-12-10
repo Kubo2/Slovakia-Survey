@@ -3,4 +3,3 @@ ExpiresByType image/png M5184000
 ExpiresByType image/jpg M5184000
 ExpiresByType image/jpeg M5184000
 ExpiresByType image/gif M5184000
-
