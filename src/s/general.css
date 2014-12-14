@@ -14,6 +14,17 @@
 	background: url(./../i/map.png) 0 0 no-repeat;
 	width: 100%;
 	height: 100%;
+	zoom: 1;
+}
+
+#place-view.point-view {
+	transition: all 2s;
+	_zoom: 140%;
+}
+
+#place-view:not(.point-view) {
+	transition: all 2s;
+	_zoom: 100%;
 }
 
 /* styles of general use */

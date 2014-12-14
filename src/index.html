@@ -46,8 +46,13 @@
 		window.onload = function() {
 			document.getElementById('start-survey').onclick = function() {
 				var survey = new window._Survey();
+
+				// postions = [
+				// 	[x, y],
+				// 	...
+				// ]
 				survey.start([
-					[318,259]
+					[318,259] //, coordinates of Trenčín (Trenčiansky hrad)
 				]);
 			}
 		}
