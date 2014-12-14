@@ -114,13 +114,19 @@
 			},
 
 			moveMap: function( x, y ) {
-				x -= (this.width / 2);
-				y -= (this.height /2);
+				x -= (this.width / 2)
+				x = x < 0 ? -x : x;
+
+				y -= (this.height / 2)
+				y = y < 0 ? -y : y;
 
 				var map = document.getElementById('place-view');
 
-				map.style.backgroundPositionX = '-' + x.toString();
-				map.style.backgroundPositionY = '-' + y.toString();
+				map.style.backgroundPositionX = '-' + x.toString() + 'px';
+				map.style.backgroundPositionY = '-' + y.toString() + 'px';
+
+				// debug
+				_d(x, y, map)
 			},
 
 			// actual label
