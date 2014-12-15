@@ -25,12 +25,10 @@
 
 #place-view.point-view {
 	transition: all 2s;
-	_zoom: 140%;
 }
 
 #place-view:not(.point-view) {
 	transition: all 2s;
-	_zoom: 100%;
 }
 
 /* styles of general use */
