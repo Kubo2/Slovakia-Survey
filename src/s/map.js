@@ -114,11 +114,14 @@
 			},
 
 			moveMap: function( x, y ) {
-				x -= (this.width / 2)
-				x = x < 0 ? -x : x;
+				var calcCoordinate = function(coordinate, clipDistance) {
+					if(coordinate <= clipDistance / 2)
+						return 0;
+					return coordinate - clipDistance / 2;
+				}
 
-				y -= (this.height / 2)
-				y = y < 0 ? -y : y;
+				x = calcCoordinate(x, this.width);
+				y = calcCoordinate(y, this.height);
 
 				var map = document.getElementById('place-view');
 
