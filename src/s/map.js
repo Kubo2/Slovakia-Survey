@@ -67,6 +67,11 @@
 			},
 
 			next: function() {
+				var map = document.getElementById('place-view');
+
+				map.style.width = '100%';
+				map.style.height = '100%';
+				
 				this.view(++this.label);
 			},
 
@@ -93,12 +98,12 @@
 				label = function() {
 					var h1 = label.getElementsByTagName('dt');
 
-					for(var t in h1) {
+					for(var t = 0; t < h1.length; t++) {
 						if(h1[t].getAttribute('data-poradie') === labelNo.toString())
 							return h1[t];
 					}
 
-					throw new Error('No enough labels');
+					throw new Error('Not enough labels');
 				}();
 
 				var theClass = label.className.split(' ')[0];
