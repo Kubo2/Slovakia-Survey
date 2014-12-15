@@ -44,14 +44,23 @@
 		// load the presentation
 		window.onload = function() {
 			document.getElementById('start-survey').onclick = function() {
-				var survey = new window._Survey();
+				var survey = window.s = new window._Survey();
 
 				// postions = [
 				// 	[x, y],
 				// 	...
 				// ]
 				survey.start([
-					[318,259] //, coordinates of Trenčín (Trenčiansky hrad)
+					[318,259], // coordinates of Trenčín (Trenčiansky hrad)
+					[429,252], // Čičmany
+					[223,499], // Vincov Les
+					[273,356], // Piešťany
+					[516,424], // SALAMANDRA Resort
+					[573,382], // arborétum Borová Hora
+					[699,270], // Jaskyňa mŕtvych netopierov
+					[665,196], // Liptovská Mara
+					[85,506], // Múzeum dopravy Bratislava
+					[1058,375] //, U. S. Steel Košice
 				]);
 			}
 		}
