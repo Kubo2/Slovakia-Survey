@@ -58,6 +58,12 @@
 				setHidden(intro);
 				setVisible(map);
 
+				var lbldst = document.getElementById('label');
+				lbldst.style.width = this.width;
+				lbldst.style.height = this.height;
+
+				setVisible(lbldst);
+
 				this.label = 1; // reset the label
 
 				var instance = this; // this alternative
@@ -83,6 +89,8 @@
 				this.moveMap(0, 0);
 				map.style.width = '100%';
 				map.style.height = '100%';
+
+				setHidden(document.getElementById('label'));
 			},
 
 			next: function() {
@@ -138,8 +146,10 @@
 
 				_d(label[0], label[1])
 
-				// !
-				// TODO: Insert label and the next button
+				// prepare label
+				var lbldest = document.getElementById('label');
+				lbldest.childNodes[0].innerHTML = label[0].innerHTML;
+				lbldest.childNodes[1].innerHTML = label[1].innerHTML;
 			},
 
 			moveMap: function( x, y ) {
