@@ -5,6 +5,11 @@
 	This file is a CSS stylesheet for this project.
  */
 
+/* general body styles and like that */
+body {
+	background-color: silver;
+}
+
 /* hidden information, javascript use - this is supposed to be always hidden */
 #survey-labels {
 	display: none !important;

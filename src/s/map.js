@@ -53,36 +53,60 @@
 			start: function(pos) {
 				if(typeof pos !== 'object' || !pos.length) {
 					throw new ReferenceError();
-				}
-
-				positions = pos;
+				} positions = pos;
 
 				setHidden(intro);
 				setVisible(map);
 
-				var instance = this;
+				this.label = 1; // reset the label
+
+				var instance = this; // this alternative
+
+				// key handler
+				window.onkeyup = function(e) {
+					var event = window.event || e;
+
+					if(event.keyCode == 39) {
+						instance.next();
+					}
+				}
+
+				// start presentation
 				window.setTimeout(function() {
 					instance.view.call(instance, 1);
-				}, 200);
+				}, 2800);
+			},
+
+			stop: function() {
+				var map = document.getElementById('place-view');
+				setClass(map, 'point-view', true); // reset to default state
+				this.moveMap(0, 0);
+				map.style.width = '100%';
+				map.style.height = '100%';
 			},
 
 			next: function() {
+				if(positions.length === this.label) {
+					this.stop();
+					return; // skip if there are no more coordinates
+				}
+
 				var map = document.getElementById('place-view');
+
+				setClass(map, 'point-view', true);
+
+				this.moveMap(0, 0);
 
 				map.style.width = '100%';
 				map.style.height = '100%';
 				
-				this.view(++this.label);
+				var instance = this;
+				window.setTimeout(function() {
+					instance.view(++instance.label);
+				}, 2000);
 			},
 
 			view: function( labelNo ) {
-				var btnNext = (function(button, ref) {
-					button.innerHTML = 'Ďalej &gt;';
-					button.onclick = function() {
-						ref.next();
-					}
-				})(window.document.createElement('button'), this);
-
 				var pos = positions[ (labelNo) - 1 ]; // 0 => x, 1 => y
 				this.moveMap.apply(this, pos);
 
