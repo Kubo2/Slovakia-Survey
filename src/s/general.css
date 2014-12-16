@@ -14,6 +14,10 @@ li {
 	list-style-type: square;
 }
 
+#introduction {
+	text-align: center;
+}
+
 /* hidden information, javascript use - this is supposed to be always hidden */
 #survey-labels {
 	display: none !important;
