@@ -36,11 +36,9 @@ li {
 }
 
 #place-view {
-	background: url(./../i/map.png) 0 0 no-repeat;
 	width: 100%;
 	height: 100%;
 	margin: 2.8em auto;
-	zoom: 1;
 }
 
 #place-view.point-view {
