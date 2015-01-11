@@ -46,8 +46,8 @@
 <dt class="piestany-jbmnt" data-poradie="4">Piešťany</dt><dd class='piestany-jbmnt'><ul>
 	<li>majú tu bahenné liečebné kúpele
 	<li>pochádza odtiaľto Patrik Rytmus Vrbovský a žije tu Michal Ego Straka
-	<li>tečie tadiaľto Váh</ul>
-	<li>je tu klub rýchlostnej kanoistiky Piešťany
+	<li>tečie tadiaľto Váh
+	<li>je tu klub rýchlostnej kanoistiky Piešťany</ul>
 </dd>
 <dt class="tale-SALAMAndra" data-poradie="5">Salamandra Resort</dt><dd class='tale-SALAMAndra'><ul>
 	<li>nachádza sa blízko Banskej Štiavnice
@@ -92,25 +92,105 @@
 		// load the presentation
 		window.onload = function() {
 			document.getElementById('start-survey').onclick = function() {
-				var survey = window.s = new window._Survey();
+				var
+					survey // local-scoped shortcut
+					= window.s // debug
+					= new window._Survey();
 
-				// postions = [
-				// 	[x, y],
-				// 	...
-				// ]
 				survey.start([
-					[318,259], // coordinates of Trenčín (Trenčiansky hrad)
-					[429,252], // Čičmany
-					[223,499], // Vincov Les
-					[273,356], // Piešťany
-					[516,424], // SALAMANDRA Resort
-					[573,382], // arborétum Borová Hora
-					[699,270], // Jaskyňa mŕtvych netopierov
-					[665,196], // Liptovská Mara
-					[85,506], // Múzeum dopravy Bratislava
-					[1058,375] //, U. S. Steel Košice
+					{
+						coordinates: [318,259], // coordinates of Trenčín (Trenčiansky hrad)
+						images: [
+							'trenciansky-hrad.jpg',
+							'trenciansky-hrad-studna-lasky.jpg',
+							'matus-cak-trenciansky.jpg',
+							'rimsky-napis-na-skale-trencianskeho-hradu.jpg'
+						]
+					},
+					{
+						coordinates: [429,252], // Čičmany
+						images: [
+							'cicmany-pernikove-domceky_a.jpg',
+							'cicmany-pernikove-domceky_b.jpg',
+							'cicmany-erb.png',
+							'cicmany-paragliding.png'
+						]
+					},
+					{
+						coordinates: [223,499], // Vincov Les
+						images: [
+							'vincov-les-mapka.png',
+							'vincov-les-zimna-sezona.png',
+							'vincov-les-vnutorny-bazen.png',
+							'vincov-les-vonkajsi-bazen.png'
+						]
+					},
+					{
+						coordinates: [273,356], // Piešťany
+						images: [
+							'pistany-erb.jpg',
+							'pistany-bahenne-kupele.jpg',
+							'pistany-Vah.jpg',
+							'patrik-rytmus-vrbovsky.png'
+						]
+					},
+					{
+						coordinates: [516,424], // SALAMANDRA Resort
+						images: [
+							'salamandra-mapka.jpg',
+							'salamandra-horna-roven.jpg',
+							'salamandra-atrakcia.jpg',
+							'mapka-lyziarske-trate.png'
+						]
+					},
+					{
+						coordinates: [573,382], // arborétum Borová Hora
+						images: [
+							'arboretum-zbierka-kaktusov.jpg',
+							'arboretum-zbierka-ruzi.jpg',
+							'arboretum-skalka.jpg',
+							'arboretum-informacna-tabula.jpg'
+						]
+					},
+					{
+						coordinates: [699,270], // Jaskyňa mŕtvych netopierov
+						images: [
+							'kostry-netopierov.jpg',
+							//'vrch-dumbier.jpg',
+							 'jaskyna-netopierov-vstup.png'
+						]
+					},
+					{
+						coordinates: [665,196], // Liptovská Mara
+						images: [
+							'liptovska-mara-jachting.jpg',
+							'liptovska-mara.jpg',
+							'liptovska-mara-pred-po.jpg',
+							'liptovska-mara-rybolov.jpg'
+						]
+					},
+					{
+						coordinates: [85,506], // Múzeum dopravy Bratislava
+						images: [
+							'dmba-rusne.png',
+							'dmba-vozidla-s-motorom.png',
+							'dmba-i-bez-motora.jpg',
+							'dmba-sidlo.jpg'
+						]
+					},
+					{
+						coordinates: [1058,375], // U. S. Steel Košice
+						images: [
+							'US-steel-kosice-saca.jpg',
+							'US-steel-vysoke-pece.jpg',
+							'US-steel-panorama.jpg',
+							'US-steel-ustredie.png'
+						]
+					}
 				]);
 			}
+			// !! DEBUG
+			//document.getElementById('start-survey').click();
 		}
 	</script>
 </html>
