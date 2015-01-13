@@ -105,9 +105,9 @@
 				setHidden(intro);
 				setVisible(map);
 
-				var lbldst = document.getElementById('label');
-				lbldst.style.width = this.width;
-				lbldst.style.height = this.height;
+				var k = 1.45, lbldst = document.getElementById('label');
+				lbldst.style.width = (k * parseInt(this.width)).toString() + 'px';
+				lbldst.style.height = (k * parseInt(this.height)).toString() + 'px';
 
 				setVisible(lbldst);
 
