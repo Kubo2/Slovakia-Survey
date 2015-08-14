@@ -103,19 +103,20 @@
 			</dd>
 		</dl>
 	</div>
+	<!-- this is actually a .map view -->
 	<div id="map" class='hidden'>
 		<div id="place-view"></div>
 		<div id="label" class='hidden'><h1></h1><div></div></div>
 	</div>
+	<!-- / .map view -->
 	</body>
 	<script type='text/javascript'>
 		// load the presentation
 		window.onload = function() {
 			document.getElementById('start-survey').onclick = function() {
-				var
-					survey // local-scoped shortcut
-					= window.s // debug
-					= new window._Survey();
+				var survey = // local-scoped shortcut
+					window.s = // for debug
+						new window._Survey();
 
 				survey.start([
 					{
