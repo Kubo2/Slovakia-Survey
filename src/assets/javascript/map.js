@@ -4,7 +4,34 @@
  * At least this time.
  */
 
-(function(){
+(function() {
+	function addTransitionendListener(node, listener) {
+		if(!node.addEventListener) return false;
+
+		var transitionEvent = whichTransitionEvent();
+		transitionEvent && node.addEventListener(transitionEvent, listener);
+
+		return true;
+
+		// http://davidwalsh.name/css-animation-callback
+		/* From Modernizr */
+		function whichTransitionEvent() {
+			var el = document.createElement('div');
+			var transitions = {
+				'transition': 'transitionend',
+				'OTransition': 'oTransitionEnd',
+				'MozTransition': 'transitionend',
+				'WebkitTransition': 'webkitTransitionEnd'
+			};
+
+			for(var t in transitions) {
+				if( el.style[t] !== undefined ) {
+					return transitions[t];
+				}
+			}
+		}
+	}
+
 	// survey loaded already
 	if(window._Survey) return;
 
@@ -54,29 +81,25 @@
 			 * and prepares it for fluent disappear.
 			 */
 			clear: function() {
-				var map = document.getElementById('place-view'),
-					len = map.childNodes.length;
-				var removal = new Array();
 
-				// first they disappear...
-				for(var  im = 0; im < len; im++) {
+				var map = document.getElementById('place-view');
 
-					if(map.childNodes[im].hasOwnProperty('nodeName')
-					&& map.childNodes[im].nodeName.toUpperCase() == 'IMG') {
-						setClass(map.childNodes[im], 'appears', true);
-						removal.push(map.childNodes[im])
+				for(var i = 0, len = map.childNodes.length, node; i < len; i++) {
+					node = map.childNodes[i];
+					if(node.nodeName.toUpperCase() === 'IMG') {
+						// remove class .appears to apply transition first
+						setClass(node, 'appears', true);
+						
+						// remove IMGs from the DOM after transition
+						var remove = (function(node) {
+							return function() {node.parentNode.removeChild(node)};
+						})(node);
+
+						if(!addTransitionendListener(map, remove)) {
+							remove();
+						}
 					}
 				}
-
-				// ...and then
-				window.setTimeout(function removeElementOnTimeout(elem){ // are removed
-
-					if(elem) 															// if this is not the first call but recursive
-						(elem.parentNode === map) && map.removeChild(elem); // remove element that we received
-					if(!removal.length) return; 										// if there are no more elements
-					removeElementOnTimeout(removal.shift()); 					// and invoke recursion with shifted element
-				}, 750) // half and a quarter of the second
-
 			},
 
 			/**
@@ -358,4 +381,4 @@
 		for(var a in arguments)
 			console.log(arguments[a]);
 	}
-})()
+})();
